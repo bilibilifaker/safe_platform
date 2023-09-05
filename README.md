@@ -1,2 +1,2 @@
-#  safe_platform
-#  use openssl git ssh and protobuf
+# safe_platform
+# use openssl git ssh and protobuf
