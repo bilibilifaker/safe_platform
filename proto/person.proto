@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+// 导入另外一个proto文件
+import "info.proto";
+
+// 添加命名空间
+package itcast;
+
+enum Color
+{
+    Red = 0; // protobuf中第一个枚举值必须为0
+    Green = 6;
+    Blue = 9;
+}
+
+message Person
+{
+    int32 id = 1;
+    repeated bytes name = 2;
+    //bytes类型可以有汉字 repeated表示可重复,作为动态数组使用
+    string sex = 3;
+    int32 age = 4;
+    Color color = 5;
+    // 命名空间.类名
+    itheima.Info info = 6;
+}
+
+//compile : protoc ./person.proto --cpp_out=./

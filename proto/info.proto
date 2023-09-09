@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package itheima;
+
+message Info
+{
+    bytes address = 1;
+    int32 number = 2;
+}
+
+//compile : protoc ./info.proto --cpp_out=./

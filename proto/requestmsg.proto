@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message RequestMsg
+{
+    // 1 秘钥协商   2 秘钥校验    3 秘钥注销
+    int32 cmdType = 1;      // 报文类型
+    string clientId = 2;    // 客户端编号
+    string serverId = 3;    // 服务器端编号
+    string sign = 4;
+    string data = 5;
+}
+
+//compile : protoc ./requestmsg.proto --cpp_out=./
