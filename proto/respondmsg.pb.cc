@@ -60,7 +60,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_respondmsg_2eproto[] =
   "\n\020respondmsg.proto\"`\n\nRespondMsg\022\016\n\006stat"
   "us\030\001 \001(\010\022\020\n\010seckeyid\030\002 \001(\005\022\020\n\010clientId\030\003"
-  " \001(\t\022\020\n\010serverId\030\004 \001(\t\022\014\n\004data\030\005 \001(\tb\006pr"
+  " \001(\014\022\020\n\010serverId\030\004 \001(\014\022\014\n\004data\030\005 \001(\014b\006pr"
   "oto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_respondmsg_2eproto_deps[1] = {
@@ -190,24 +190,24 @@ const char* RespondMsg::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string clientId = 3;
+      // bytes clientId = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_clientid(), ptr, ctx, "RespondMsg.clientId");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_clientid(), ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string serverId = 4;
+      // bytes serverId = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_serverid(), ptr, ctx, "RespondMsg.serverId");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_serverid(), ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string data = 5;
+      // bytes data = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_data(), ptr, ctx, "RespondMsg.data");
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(mutable_data(), ptr, ctx);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -267,45 +267,33 @@ bool RespondMsg::MergePartialFromCodedStream(
         break;
       }
 
-      // string clientId = 3;
+      // bytes clientId = 3;
       case 3: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (26 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_clientid()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->clientid().data(), static_cast<int>(this->clientid().length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "RespondMsg.clientId"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string serverId = 4;
+      // bytes serverId = 4;
       case 4: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (34 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_serverid()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->serverid().data(), static_cast<int>(this->serverid().length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "RespondMsg.serverId"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string data = 5;
+      // bytes data = 5;
       case 5: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (42 & 0xFF)) {
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_data()));
-          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->data().data(), static_cast<int>(this->data().length()),
-            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "RespondMsg.data"));
         } else {
           goto handle_unusual;
         }
@@ -349,33 +337,21 @@ void RespondMsg::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32(2, this->seckeyid(), output);
   }
 
-  // string clientId = 3;
+  // bytes clientId = 3;
   if (this->clientid().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->clientid().data(), static_cast<int>(this->clientid().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.clientId");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesMaybeAliased(
       3, this->clientid(), output);
   }
 
-  // string serverId = 4;
+  // bytes serverId = 4;
   if (this->serverid().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->serverid().data(), static_cast<int>(this->serverid().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.serverId");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesMaybeAliased(
       4, this->serverid(), output);
   }
 
-  // string data = 5;
+  // bytes data = 5;
   if (this->data().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->data().data(), static_cast<int>(this->data().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.data");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesMaybeAliased(
       5, this->data(), output);
   }
 
@@ -402,36 +378,24 @@ void RespondMsg::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->seckeyid(), target);
   }
 
-  // string clientId = 3;
+  // bytes clientId = 3;
   if (this->clientid().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->clientid().data(), static_cast<int>(this->clientid().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.clientId");
     target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
         3, this->clientid(), target);
   }
 
-  // string serverId = 4;
+  // bytes serverId = 4;
   if (this->serverid().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->serverid().data(), static_cast<int>(this->serverid().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.serverId");
     target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
         4, this->serverid(), target);
   }
 
-  // string data = 5;
+  // bytes data = 5;
   if (this->data().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->data().data(), static_cast<int>(this->data().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "RespondMsg.data");
     target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBytesToArray(
         5, this->data(), target);
   }
 
@@ -456,24 +420,24 @@ size_t RespondMsg::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string clientId = 3;
+  // bytes clientId = 3;
   if (this->clientid().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->clientid());
   }
 
-  // string serverId = 4;
+  // bytes serverId = 4;
   if (this->serverid().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->serverid());
   }
 
-  // string data = 5;
+  // bytes data = 5;
   if (this->data().size() > 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->data());
   }
 

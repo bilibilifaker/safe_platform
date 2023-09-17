@@ -1,4 +1,4 @@
-OBJS = sha1test rsa aes myjson testproto stringtest test
+OBJS = sha1test rsa aes myjson testproto stringtest test callback
 TARGET = all
 
 $(TARGET):$(OBJS)
@@ -9,6 +9,9 @@ sha1test:sha1test.cpp
 
 rsa:rsa.cpp
 	g++ rsa.cpp -o rsa -lcrypto -std=c++11
+
+callback:callback.cpp
+	g++ callback.cpp -o callback -lcrypto -std=c++11
 
 stringtest:stringtest.cpp
 	g++ stringtest.cpp -o stringtest -lcrypto -std=c++11

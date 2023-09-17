@@ -59,8 +59,9 @@ class Request : public Codec{
 
         void* decodeMsg(){
             m_msg.ParseFromString(m_encStr);
-            return &m_msg;
+            RequestMsg* ret = new RequestMsg(m_msg);
+            return (void*)ret;
         }
         
-        ~Request(){};
+        virtual ~Request(){};
 };

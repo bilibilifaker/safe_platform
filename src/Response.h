@@ -61,5 +61,5 @@ class Response : public Codec{
             return &m_msg;
         }
         
-        ~Response(){};
+        virtual ~Response(){};
 };

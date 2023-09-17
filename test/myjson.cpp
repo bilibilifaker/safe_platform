@@ -24,7 +24,7 @@ void writejson(){
     string json = root.toStyledString();
 
     FastWriter w;
-    json = w.write(root);
+    //json = w.write(root);
     // 加上这一行就是一行字 没有空格换行符啥的了
 
     // 写磁盘文件

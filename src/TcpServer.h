@@ -77,7 +77,6 @@ class TcpSocket{
             int netlen = htonl(data.size());
             memcpy(netdata, &netlen, 4);
     		memcpy(netdata + 4, data.data(), data.size());
-            
             int writed = write(m_socket,netdata,data_len);
             return writed;
         }
@@ -96,10 +95,12 @@ class TcpSocket{
             do{
                 ret = select(m_socket+1, &set, nullptr, nullptr, &time);
             }while(ret < 0 && errno == EINTR);
+
             if(ret == 0){
                 return "";
             }
             int net_data_len = 0;
+
             ret = readn(4,&net_data_len);
             if (ret == -1){
 		        printf("func readn() err:%d \n", ret);
