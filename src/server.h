@@ -192,6 +192,7 @@ class Server{
             my_this->my_aes = new MyAES(aes_key);
             cout << "decrypt data: " <<my_this->my_aes->decrypt_data(msg->first->data()) <<endl;
             if(my_this->my_aes->decrypt_data(msg->first->data()).substr(0,18) != "secret key vertify"){
+                //  这里0,18是解码最后有点乱码问题  有空了解决
                 cout << "vertify sign false." << endl;
                 info.status = false;
             }
@@ -233,6 +234,7 @@ class Server{
             my_this->my_aes = new MyAES(aes_key);
             cout << "decrypt data: " <<my_this->my_aes->decrypt_data(msg->first->data()) <<endl;
             if(my_this->my_aes->decrypt_data(msg->first->data()).substr(0,16) != "secret key delet"){
+                //  这里0,16是最后有点乱码问题  有空了解决
                 cout << "vertify sign false." << endl;
                 info.status = false;
             }
